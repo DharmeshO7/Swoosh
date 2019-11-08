@@ -4,13 +4,24 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import dharmesh.padhiyar.swoosh.Utilities.LEAGUE
+import dharmesh.padhiyar.swoosh.Model.Player
 import dharmesh.padhiyar.swoosh.R
+import dharmesh.padhiyar.swoosh.Utilities.PLAYER
 import kotlinx.android.synthetic.main.activity_league.*
 
 class LeagueActivity : BaseActivity() {
 
-    var selectedLeague = ""
+    var player = Player("", "")
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putParcelable(PLAYER, player)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        player = savedInstanceState.getParcelable(PLAYER)!!
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,25 +36,25 @@ class LeagueActivity : BaseActivity() {
         }
 
         val intent = Intent(this, SkillActivity::class.java)
-        intent.putExtra(LEAGUE, selectedLeague)
+        intent.putExtra(PLAYER, player)
         startActivity(intent)
     }
 
     fun onMensClicked(view: View) {
         womens.isChecked = false
         coed.isChecked = false
-        selectedLeague = "mens"
+        player.league = "mens"
     }
 
     fun onWomensClicked(view: View) {
         mens.isChecked = false
         coed.isChecked = false
-        selectedLeague = "womens"
+        player.league = "womens"
     }
 
     fun onCoedClicked(view: View) {
         mens.isChecked = false
         womens.isChecked = false
-        selectedLeague = "coed"
+        player.league = "coed"
     }
 }

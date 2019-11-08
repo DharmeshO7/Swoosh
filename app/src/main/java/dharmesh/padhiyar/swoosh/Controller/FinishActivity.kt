@@ -1,9 +1,9 @@
 package dharmesh.padhiyar.swoosh.Controller
 
 import android.os.Bundle
+import dharmesh.padhiyar.swoosh.Model.Player
 import dharmesh.padhiyar.swoosh.R
-import dharmesh.padhiyar.swoosh.Utilities.LEAGUE
-import dharmesh.padhiyar.swoosh.Utilities.SKILL
+import dharmesh.padhiyar.swoosh.Utilities.PLAYER
 import kotlinx.android.synthetic.main.activity_finish.*
 
 class FinishActivity : BaseActivity() {
@@ -12,9 +12,8 @@ class FinishActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_finish)
 
-        val league = intent.getStringExtra(LEAGUE)
-        val skill = intent.getStringExtra(SKILL)
+        val player = intent.getParcelableExtra<Player>(PLAYER)
 
-        searchLeagueTxt.text = "Looking for a $league $skill near you..."
+        searchLeagueTxt.text = "Looking for a ${player.league} ${player.skill} near you..."
     }
 }
