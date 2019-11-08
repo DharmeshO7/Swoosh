@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SkillActivity">
+    tools:context=".Controller.SkillActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -55,13 +55,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5">
 
         <ToggleButton
-            android:id="@+id/toggleButton"
+            android:id="@+id/beginner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="32dp"
             android:layout_weight="1"
             android:background="@drawable/swoosh_toggle"
             android:fontFamily="@font/montserrat"
+            android:onClick="onBeginnerClick"
             android:text="@string/beginner"
             android:textColor="@color/colorAccent"
             android:textOff="@string/beginner"
@@ -69,12 +70,13 @@
             android:textSize="16sp" />
 
         <ToggleButton
-            android:id="@+id/toggleButton2"
+            android:id="@+id/baller"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/swoosh_toggle"
             android:fontFamily="@font/montserrat"
+            android:onClick="onBallerClick"
             android:text="@string/baller"
             android:textColor="@color/colorAccent"
             android:textOff="@string/baller"
@@ -83,7 +85,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/finish"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -91,6 +93,7 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/swoosh_button"
         android:fontFamily="@font/montserrat"
+        android:onClick="onFinishClicked"
         android:text="@string/finish"
         android:textColor="@color/colorAccent"
         android:textSize="18sp"

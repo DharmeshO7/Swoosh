@@ -1,4 +1,4 @@
-package dharmesh.padhiyar.swoosh
+package dharmesh.padhiyar.swoosh.Controller
 
 import android.os.Bundle
 import android.util.Log
